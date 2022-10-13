@@ -24,11 +24,11 @@ const BottomTabNav = () => {
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarIcon: ({ focused, color, size }) => (
+          tabBarIcon: ({ focused, color }) => (
             <MaterialCommunityIcons
               name="home-outline"
               color={color}
-              size={size}
+              size={30}
             />
           ),
         }}
@@ -37,11 +37,11 @@ const BottomTabNav = () => {
         name="Profile"
         component={ProfileScreen}
         options={{
-          tabBarIcon: ({ focused, color, size }) => (
+          tabBarIcon: ({ focused, color }) => (
             <MaterialCommunityIcons
               name="account-outline"
               color={color}
-              size={size}
+              size={30}
             />
           ),
         }}
@@ -50,11 +50,11 @@ const BottomTabNav = () => {
         name="Cart"
         component={CartScreen}
         options={{
-          tabBarIcon: ({ focused, color, size }) => (
+          tabBarIcon: ({ focused, color }) => (
             <MaterialCommunityIcons
               name="cart-outline"
               color={color}
-              size={size}
+              size={30}
             />
           ),
         }}
@@ -63,8 +63,8 @@ const BottomTabNav = () => {
         name="Others"
         component={OthersScreen}
         options={{
-          tabBarIcon: ({ focused, color, size }) => (
-            <FontAwesome name="bars" color={color} size={size} />
+          tabBarIcon: ({ focused, color }) => (
+            <FontAwesome name="bars" color={color} size={26} />
           ),
         }}
       />
