@@ -1,16 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
+import React from "react";
 
-import { RootTabScreenProps } from "../types";
-
-export default function TabOneScreen({
-  navigation,
-}: RootTabScreenProps<"TabOne">) {
+const ProfileScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
+      <Text style={styles.title}>SettingsScreen</Text>
     </View>
   );
-}
+};
+
+export default ProfileScreen;
 
 const styles = StyleSheet.create({
   container: {

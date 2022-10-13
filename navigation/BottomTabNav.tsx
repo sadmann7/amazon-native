@@ -1,54 +1,75 @@
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import useColorScheme from "../hooks/useColorScheme";
 import { RootTabParamList, RootTabScreenProps } from "../types";
-import TabOneScreen from "../screens/TabOneScreen";
-import { FontAwesome } from "@expo/vector-icons";
-import TabTwoScreen from "../screens/TabTwoScreen";
+import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
+import HomeScreen from "../screens/HomeScreen";
+import ProfileScreen from "../screens/ProfileScreen";
+import CartScreen from "../screens/CartScreen";
+import OthersScreen from "../screens/OthersScreen";
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 const BottomTabNav = () => {
-  const colorScheme = useColorScheme();
-
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: "lightblue",
+        tabBarActiveTintColor: "#018297",
+        tabBarInactiveTintColor: "#383838",
+        tabBarShowLabel: false,
       }}
     >
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Tab One",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        })}
+        name="Home"
+        component={HomeScreen}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <MaterialCommunityIcons
+              name="home-outline"
+              color={color}
+              size={size}
+            />
+          ),
+        }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+        name="Profile"
+        component={ProfileScreen}
         options={{
-          title: "Tab Two",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ focused, color, size }) => (
+            <MaterialCommunityIcons
+              name="account-outline"
+              color={color}
+              size={size}
+            />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Cart"
+        component={CartScreen}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <MaterialCommunityIcons
+              name="cart-outline"
+              color={color}
+              size={size}
+            />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Others"
+        component={OthersScreen}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <FontAwesome name="bars" color={color} size={size} />
+          ),
         }}
       />
     </BottomTab.Navigator>
   );
 };
 
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
-  color: string;
-}) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
-}
-
 export default BottomTabNav;
-
-const styles = StyleSheet.create({});

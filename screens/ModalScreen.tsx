@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { Platform, StyleSheet, Text, View } from "react-native";
+import React from "react";
 
 export default function ModalScreen() {
   return (
